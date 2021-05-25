@@ -36,46 +36,66 @@ let convertFahrToCelsius = (f) => {
     }
 }
 
+convertFahrToCelsius(0)
+convertFahrToCelsius("0") 
+convertFahrToCelsius([1,2,3]) 
+convertFahrToCelsius({temp: 0}) 
+
 /**conversion code ends**/
 /** different code**/
 
-function checkYuGiOh(num) {
+
+let checkYuGiOh = (n) => {
     const array = [];
     const newArray = [];
 
-    if ( ) {
-        for (i = 1; i <= num; i++) {
-            array.push(i)
-        }
-        for ( ) {
-            if( ) {
-                var str = "";
+   if (typeof n == 'number') {
+       for(i=1; i<=n; i++) {
+           array.push(i)
+       }
 
-                if(array[i] % 2 === 0) {
-                    str += ("yu")
-                }
+       for(i in array) {
+          if(array[i] % 2 == 0 || array[i] % 3 == 0 || array[i] % 5 == 0) {
+              var str = " ";
 
-                if(array[i] % 3 === 0) {
-                    str += ("gi")
-                    newArray.push(str)
-                }
+              if(array[i] % 2 === 0 && array[i] % 3 === 0) {
+                  str += ("yu-gi")
+              }
+              else if(array[i] % 3 == 0 && array[i] % 5 == 0) {
+                  str += ("gi-oh")
+              }
+              else if(array[i] % 2 == 0 && array[i] % 5 == 0) {
+                  str +=("yu-oh")
+              }
 
-                if(array[i] % 5 === 0) {
-                    str += ("oh")
-                    newArray.push(str)
-                } else {
-                    console.log (`Invalid Parameter: ${JSON.stringify(num)}`)
-                    return "fizzbuzz is meh";
-                }
 
-                console.log(newArray)
-                return(newArray)
-            }
-        }
-    }
+            
+             else if(array[i] % 2 === 0) {
+                  str += ("yu")
+              }
+             else if(array[i]% 3 === 0) {
+                  str += ("gi");
+              }
+             else if(array[i]% 5 === 0) {
+                  str +=("oh");
+              }
+              newArray.push(str);
+            }else {
+              newArray.push(array[i])
+          }
     
+          } 
+       } else {
+       console.log (`Invalid Parameter : ${JSON.stringify(n)}`)
+       return "fizbuzz is meh";
+   }
+
+   console.log(newArray)
+   return(newArray)
 }
 
 
-
-
+//Testing The Function
+checkYuGiOh(10);
+checkYuGiOh(5);
+checkYuGiOh("fizzbuzz is meh")
